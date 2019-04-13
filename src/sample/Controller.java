@@ -3,8 +3,10 @@ package sample;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 
 public class Controller {
     public Label fldIme;
@@ -63,5 +65,8 @@ public class Controller {
     }
 
     public void zatvoriProzor(ActionEvent actionEvent) {
+        Node n = (Node) actionEvent.getSource();
+        Stage stage = (Stage) n.getScene().getWindow();
+        stage.close();
     }
 }
