@@ -10,6 +10,12 @@ public class Controller {
     public Label fldKorisnickoIme;
     public Label fldLozinka;
 
+    public Controller() {
+    }
+
+    public void initialize() {
+    }
+
     public void dodajNovogkorisnika(ActionEvent actionEvent) {
     }
 
