@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.172-ea" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <GridPane alignment="center" hgap="10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="10">
          <rowConstraints>
@@ -30,11 +29,11 @@
          </columnConstraints>
          <children>
             <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowSpan="5" />
-            <Label text="Ime:" GridPane.columnIndex="1" />
-            <Label text="Prezime:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Korisničko ime:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Lozinka:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="fldIme" text="Ime:" GridPane.columnIndex="1" />
+            <Label fx:id="fldPrezime" text="Prezime:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="fldEmail" text="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="fldKorisnickoIme" text="Korisničko ime:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="fldLozinka" text="Lozinka:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <PasswordField GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
@@ -42,8 +41,8 @@
             <TextField GridPane.columnIndex="2" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
                <buttons>
-                  <Button mnemonicParsing="false" text="Dodaj" />
-                  <Button mnemonicParsing="false" text="Kraj" />
+                  <Button mnemonicParsing="false" onAction="#dodajNovogkorisnika" text="Dodaj" />
+                  <Button mnemonicParsing="false" onAction="#zatvoriProzor" text="Kraj" />
                </buttons>
             </ButtonBar>
          </children>
@@ -52,4 +51,10 @@
          </padding>
       </GridPane>
    </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
