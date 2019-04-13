@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -24,11 +26,11 @@ public class Controller {
         model.trenutniKorisnikProperty().addListener(
                 (obs, oldKorisnik, newKorisnik) -> {
                     if(oldKorisnik != null) {
-                        fldIme.textProperty().bindBidirectional(oldKorisnik.imeProperty());
-                        fldPrezime.textProperty().bindBidirectional(oldKorisnik.prezimeProperty());
-                        fldEmail.textProperty().bindBidirectional(oldKorisnik.emailProperty());
-                        fldKorisnickoIme.textProperty().bindBidirectional(oldKorisnik.korisnickoImeProperty());
-                        fldLozinka.textProperty().bindBidirectional(oldKorisnik.lozinkaProperty());
+                        fldIme.textProperty().unbindBidirectional(oldKorisnik.imeProperty());
+                        fldPrezime.textProperty().unbindBidirectional(oldKorisnik.prezimeProperty());
+                        fldEmail.textProperty().unbindBidirectional(oldKorisnik.emailProperty());
+                        fldKorisnickoIme.textProperty().unbindBidirectional(oldKorisnik.korisnickoImeProperty());
+                        fldLozinka.textProperty().unbindBidirectional(oldKorisnik.lozinkaProperty());
                     }
                     if(newKorisnik==null) {
                         fldIme.setText("");
@@ -46,12 +48,18 @@ public class Controller {
                     }
                 }
         );
+        listaKorisnika.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Korisnik>() {
+            @Override
+            public void changed(ObservableValue<? extends Korisnik> observableValue, Korisnik korisnik, Korisnik t1) {
+                model.setTrenutniKorisnik(t1);
+            }
+        });
     }
 
     public void dodajNovogkorisnika(ActionEvent actionEvent) {
 
-        listaKorisnika.getSelectionModel().getSelectedItem();
-        //model.setTrenutniKorisnik(listaKorisnika.getSelectionModel());
+        //listaKorisnika.getSelectionModel().getSelectedItem();
+        //model.setTrenutniKorisnik(listaKorisnika.getSelectionModel().getSelectedItem());
     }
 
     public void zatvoriProzor(ActionEvent actionEvent) {
