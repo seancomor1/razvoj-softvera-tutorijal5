@@ -7,12 +7,10 @@ import javafx.collections.ObservableList;
 
 public class KorisnikModel {
 
-    private ObservableList<Korisnik> korisnici;
-    private SimpleObjectProperty<Korisnik> trenutniKorisnik;
+    private ObservableList<Korisnik> korisnici=FXCollections.observableArrayList();
+    private SimpleObjectProperty<Korisnik> trenutniKorisnik=new SimpleObjectProperty<>();
 
     public KorisnikModel() {
-        this.korisnici=FXCollections.observableArrayList();
-        this.trenutniKorisnik=new SimpleObjectProperty<>();
     }
 
     public ObservableList<Korisnik> getKorisnici() {
@@ -40,6 +38,7 @@ public class KorisnikModel {
         korisnici.add(new Korisnik("Amra", "Delić", "adelic@etf.unsa.na", "adelic", "5467"));
         korisnici.add(new Korisnik("Tarik", "Sijerčić", "tsijercic@etf.unsa.na", "tsijercic", "8912"));
         korisnici.add(new Korisnik("Rijad", "Fejzić", "rfejzic@etf.unsa.na", "rfejzic", "5468"));
+        trenutniKorisnik.set(null);
     }
 
 }

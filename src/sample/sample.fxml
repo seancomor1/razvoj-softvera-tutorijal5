@@ -28,7 +28,7 @@
             <ColumnConstraints halignment="CENTER" />
          </columnConstraints>
          <children>
-            <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowSpan="5" />
+            <ListView fx:id="listaKorisnika" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowSpan="5" />
             <Label fx:id="fldIme" text="Ime:" GridPane.columnIndex="1" />
             <Label fx:id="fldPrezime" text="Prezime:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label fx:id="fldEmail" text="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="2" />

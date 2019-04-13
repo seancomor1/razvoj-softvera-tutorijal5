@@ -87,6 +87,6 @@ public class Korisnik {
     }
 
     public String toString() {
-        return prezime+ " " +ime;
+        return prezime.get()+ " " +ime.get();
     }
 }
