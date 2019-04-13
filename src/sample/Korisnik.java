@@ -80,4 +80,8 @@ public class Korisnik {
     public void setLozinka(String lozinka) {
         this.lozinka.set(lozinka);
     }
+
+    public String toString() {
+        return prezime+ " " +ime;
+    }
 }
