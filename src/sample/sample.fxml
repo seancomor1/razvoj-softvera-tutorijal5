@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane alignment="center" hgap="10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="10">
          <rowConstraints>
@@ -41,8 +41,8 @@
             <TextField fx:id="fldIme" GridPane.columnIndex="2" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
                <buttons>
-                  <Button mnemonicParsing="false" onAction="#dodajNovogkorisnika" text="Dodaj" />
-                  <Button mnemonicParsing="false" onAction="#zatvoriProzor" text="Kraj" />
+                  <Button fx:id="dodaj" mnemonicParsing="false" onAction="#dodajNovogkorisnika" text="Dodaj" />
+                  <Button fx:id="kraj" mnemonicParsing="false" onAction="#zatvoriProzor" text="Kraj" />
                </buttons>
             </ButtonBar>
          </children>

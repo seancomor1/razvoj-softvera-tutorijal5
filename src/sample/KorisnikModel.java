@@ -30,7 +30,12 @@ public class KorisnikModel {
     }
 
     public void setTrenutniKorisnik(Korisnik trenutniKorisnik) {
-        this.trenutniKorisnik.set(trenutniKorisnik);
+
+        this.trenutniKorisnik.set((Korisnik)trenutniKorisnik);
+    }
+
+    public void dodajKorisnika() {
+        korisnici.add(new Korisnik());
     }
 
     public void napuni() {

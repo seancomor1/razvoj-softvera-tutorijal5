@@ -4,10 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -17,53 +14,66 @@ public class Controller {
     public TextField fldEmail;
     public TextField fldPrezime;
     public TextField fldIme;
+    public Button dodaj;
+    public Button kraj;
 
-    private KorisnikModel model=new KorisnikModel();
+    private KorisnikModel model;
 
-    public Controller() {
-        model.napuni();
+    public Controller(KorisnikModel m) {
+        model=m;
+    }
+
+    private void odvezivanje() {
+        fldIme.textProperty().unbindBidirectional(model.getTrenutniKorisnik().imeProperty());
+        fldPrezime.textProperty().unbindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
+        fldEmail.textProperty().unbindBidirectional(model.getTrenutniKorisnik().emailProperty());
+        fldKorisnickoIme.textProperty().unbindBidirectional(model.getTrenutniKorisnik().korisnickoImeProperty());
+        fldLozinka.textProperty().unbindBidirectional(model.getTrenutniKorisnik().lozinkaProperty());
+    }
+
+    private void povezivanje() {
+        fldIme.textProperty().bindBidirectional(model.getTrenutniKorisnik().imeProperty());
+        fldPrezime.textProperty().bindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
+        fldEmail.textProperty().bindBidirectional(model.getTrenutniKorisnik().emailProperty());
+        fldKorisnickoIme.textProperty().bindBidirectional(model.getTrenutniKorisnik().korisnickoImeProperty());
+        fldLozinka.textProperty().bindBidirectional(model.getTrenutniKorisnik().lozinkaProperty());
     }
 
     public void initialize() {
-
+        model.setTrenutniKorisnik(model.getKorisnici().get(0));
+        povezivanje();
         listaKorisnika.setItems(model.getKorisnici());
-        model.trenutniKorisnikProperty().addListener(
-                (obs, oldKorisnik, newKorisnik) -> {
-                    if(oldKorisnik != null) {
-                        fldIme.textProperty().unbindBidirectional(oldKorisnik.imeProperty());
-                        fldPrezime.textProperty().unbindBidirectional(oldKorisnik.prezimeProperty());
-                        fldEmail.textProperty().unbindBidirectional(oldKorisnik.emailProperty());
-                        fldKorisnickoIme.textProperty().unbindBidirectional(oldKorisnik.korisnickoImeProperty());
-                        fldLozinka.textProperty().unbindBidirectional(oldKorisnik.lozinkaProperty());
-                    }
-                    if(newKorisnik==null) {
-                        fldIme.setText("");
-                        fldPrezime.setText("");
-                        fldEmail.setText("");
-                        fldKorisnickoIme.setText("");
-                        fldLozinka.setText("");
-                    }
-                    else {
-                        fldIme.textProperty().bindBidirectional(newKorisnik.imeProperty());
-                        fldPrezime.textProperty().bindBidirectional(newKorisnik.prezimeProperty());
-                        fldEmail.textProperty().bindBidirectional(newKorisnik.emailProperty());
-                        fldKorisnickoIme.textProperty().bindBidirectional(newKorisnik.korisnickoImeProperty());
-                        fldLozinka.textProperty().bindBidirectional(newKorisnik.lozinkaProperty());
-                    }
-                }
-        );
         listaKorisnika.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Korisnik>() {
             @Override
-            public void changed(ObservableValue<? extends Korisnik> observableValue, Korisnik korisnik, Korisnik t1) {
-                model.setTrenutniKorisnik(t1);
+            public void changed(ObservableValue<? extends Korisnik> observableValue, Korisnik stariKorisnik, Korisnik noviKorisnik) {
+                if(stariKorisnik!=null) {
+                    odvezivanje();
+                }
+                if (noviKorisnik == null) {
+                    fldIme.setText("");
+                    fldPrezime.setText("");
+                    fldEmail.setText("");
+                    fldKorisnickoIme.setText("");
+                    fldLozinka.setText("");
+                }
+                else {
+                    Korisnik korisnik =  (Korisnik) listaKorisnika.getSelectionModel().getSelectedItem();
+                    odvezivanje();
+                    model.setTrenutniKorisnik(korisnik);
+                    povezivanje();
+                    listaKorisnika.refresh();
+                }
+                listaKorisnika.refresh();
             }
         });
     }
 
     public void dodajNovogkorisnika(ActionEvent actionEvent) {
-
-        //listaKorisnika.getSelectionModel().getSelectedItem();
-        //model.setTrenutniKorisnik(listaKorisnika.getSelectionModel().getSelectedItem());
+        model.dodajKorisnika();
+        odvezivanje();
+        model.setTrenutniKorisnik(model.getKorisnici().get(model.getKorisnici().size()-1));
+        povezivanje();
+        listaKorisnika.refresh();
     }
 
     public void zatvoriProzor(ActionEvent actionEvent) {
