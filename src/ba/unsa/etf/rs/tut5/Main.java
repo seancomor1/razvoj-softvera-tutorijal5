@@ -1,12 +1,10 @@
-package sample;
+package ba.unsa.etf.rs.tut5;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class Main extends Application {
 
