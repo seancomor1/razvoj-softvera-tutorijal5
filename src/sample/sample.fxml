@@ -29,16 +29,16 @@
          </columnConstraints>
          <children>
             <ListView fx:id="listaKorisnika" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowSpan="5" />
-            <Label fx:id="fldIme" text="Ime:" GridPane.columnIndex="1" />
-            <Label fx:id="fldPrezime" text="Prezime:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="fldEmail" text="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="fldKorisnickoIme" text="Korisničko ime:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="fldLozinka" text="Lozinka:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <PasswordField GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="2" />
+            <Label text="Ime:" GridPane.columnIndex="1" />
+            <Label text="Prezime:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="E-mail:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Korisničko ime:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Lozinka:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <PasswordField fx:id="fldLozinka" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+            <TextField fx:id="fldKorisnickoIme" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="fldEmail" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="fldPrezime" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="fldIme" GridPane.columnIndex="2" />
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
                <buttons>
                   <Button mnemonicParsing="false" onAction="#dodajNovogkorisnika" text="Dodaj" />

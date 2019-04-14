@@ -6,15 +6,17 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Controller {
-    public Label fldIme;
-    public Label fldPrezime;
-    public Label fldEmail;
-    public Label fldKorisnickoIme;
-    public Label fldLozinka;
     public ListView<Korisnik> listaKorisnika;
+    public PasswordField fldLozinka;
+    public TextField fldKorisnickoIme;
+    public TextField fldEmail;
+    public TextField fldPrezime;
+    public TextField fldIme;
 
     private KorisnikModel model=new KorisnikModel();
 
